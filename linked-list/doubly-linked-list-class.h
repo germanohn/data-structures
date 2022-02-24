@@ -2,35 +2,31 @@
 #define DOUBLY_LINKED_LIST_CLASS_H
 
 
-struct DoublyNode {
+struct DoubleNode {
     int val;
-    DoublyNode* prev;
-    DoublyNode* next;
+    DoubleNode* prev;
+    DoubleNode* next;
 
-    // constructors
-    DoublyNode() : val(0), prev(nullptr), next(nullptr) {}
-    DoublyNode(int _val) : val(_val), prev(nullptr), next(nullptr) {}
-    // the following two constructors cannot both exist; and to write
-    // only one of them also does not make sense
-    // DoublyNode(int _val, DoublyNode* _prev) : val(_val), prev(_prev), next(nullptr) {}
-    // DoublyNode(int _val, DoublyNode* _next) : val(_val), prev(nullptr), next(_next) {}
-    DoublyNode(int _val, DoublyNode* _prev, DoublyNode* _next) : val(_val), prev(_prev), next(_next) {}
+    DoubleNode() : val(0), prev(nullptr), next(nullptr) {}
+    DoubleNode(int _val) : val(_val), prev(nullptr), next(nullptr) {}
+    DoubleNode(int _val, DoubleNode* _prev, DoubleNode* _next) : val(_val), prev(_prev), next(_next) {}
 };
 
 
 class DoublyLinkedList {
     public:
-        // constructors
         DoublyLinkedList() : head(nullptr) {}
-        DoublyLinkedList(DoublyNode* _head) : head(_head) {}
+        DoublyLinkedList(DoubleNode* _head) : head(_head) {}
 
-        // functions
-        void InsertAtHead(int val);
-        void InsertAtTail(int val);
-        void Print();
-        void ReversePrint();
+        int get(int index);
+        void insert_at_head(int val);
+        void insert_at_tail(int val);
+        void insert_at_index(int index, int val);
+        void delete_at_index(int index);
+        void print();
+        void reverse_print();
     private:
-        DoublyNode* head;
+        DoubleNode* head;
 };
 
 #endif
